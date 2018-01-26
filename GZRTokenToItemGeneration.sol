@@ -115,14 +115,14 @@ contract GZR is StandardToken, SafeMath {
     
     address public minter;
     address public hedgeContract;
-    
-    function GZR(string _name, string _symbol, uint _decimals, address _hedgeContract) {
-        name = _name;
-        symbol = _symbol;
-        decimals = _decimals;
-        minter = msg.sender;
-        hedgeContract = _hedgeContract;
-    }
+    string public name = "GZR";
+    string public symbol = "GZR";
+    uint public decimals = 18;
+
+   function GZR() {
+	minter = msg.sender;
+	balances[msg.sender] = 100000000000000000000;  
+}
     
     function create(uint amount) {
         if (msg.sender != minter) throw;

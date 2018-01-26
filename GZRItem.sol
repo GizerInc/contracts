@@ -27,6 +27,10 @@ contract GZIItemA {
    mapping(address => mapping (address => uint256)) private allowed;
    mapping(address => mapping(uint256 => uint256)) private ownerTokens;
    mapping(uint256 => string) tokenLinks;
+
+   function GZIItemA() {
+   	balances[msg.sender] += totalTokens;
+   }
    
    function removeFromTokenList(address owner, uint256 _tokenId) private {
      for(uint256 i = 0;ownerTokens[owner][i] != _tokenId;i++){
